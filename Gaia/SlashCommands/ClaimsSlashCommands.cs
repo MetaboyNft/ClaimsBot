@@ -56,7 +56,9 @@ namespace Gaia
 
                 List<NftReciever> nftRecievers = new List<NftReciever>();
                 await ctx.CreateResponseAsync(InteractionResponseType.DeferredChannelMessageWithSource);
-                await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent($"Hold on let me check and see if there's any claims waiting for you!"));
+                // Attempting Claim
+                await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent($"So you are looking for a wandering Soul? Do you know when it arrived in the underworld? I ferry so many Souls across every day, how can I even remember. Alright, let me see, it should be around the catacombs somewhere."));
+                
 
                 // Receives back CanClaimV3 as a list of Address, NftData, with amount greater than 0
                 var redeemable = await ClaimsApiService.GetRedeemable(address);
@@ -72,11 +74,13 @@ namespace Gaia
                 // Valid claims found - send to Api
                 if (nftRecievers.Count > 0 && redeemable != null)
                 {
-                    await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent($"There's a claim here with your name on it!"));
+                    // Claim Found
+                    await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent($"There was a Soul associated with your wallet! I ferried it over to the Soulie Catacombs just last week."));
                     
                     // Gets passed instances of nftReceiver [{ string Address, string NftData }]
                     await ClaimsApiService.AddClaim(nftRecievers);
-                    await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent($"I just hand delivered your claim to the teleporter and it should be there as soon as possible!"));
+                    // Claim sent
+                    await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent($"Hades might become furious but you are right, this Soul's haunting days are not over! I will honor your request this time. It should be there soon! Please check your hidden tab as your new Soul may be shy. If there are any problems, you may contact someone from the Soulies Team."));
                     
                     foreach (NftReciever nftReciever in nftRecievers)
                     {
@@ -88,15 +92,17 @@ namespace Gaia
                 }
                 else
                 {
-                    ConsoleMessage.WriteMessage($"[INFO]  Unable to find any matching claims for Address: {address}  !"); // No claims found!
-                    await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent($"I'm sorry I can't seem to find a delivery here with your name on it, check back soon though! Take a look at our announcements for the most up to date info! That's where we keep the most valuable information."));
+                    // No claim found
+                    ConsoleMessage.WriteMessage($"[INFO]  Unable to find any matching claims for Address: {address}  !");
+                    await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent($"I apologize... I can't seem to find it at this moment in time. The underworld has far too many dark corners. Please check our recent announcements for the most up to date info!"));
                     return;
                 }
             }
             else if (ctx.Channel.Id == Settings.ClaimsChannelId && string.IsNullOrEmpty(hexAddress))
             {
+                // Invalid Address Format
                 var builder = new DiscordInteractionResponseBuilder()
-                .WithContent("Woah woah woah it's like you're speaking another language! My machines can't read that, please type it in Hex Format : Example: 0x36cd6b3b9329c04df55d55d41c257a5fdd387acd")
+                .WithContent("Woah woah woah. You are clearly not speaking my language... Please try again in Hex format: Example: 0x6CB2111326Fa160B7A50F0Bf4158964CA9CF5DB4")
                 .AsEphemeral(true);
                 await ctx.CreateResponseAsync(InteractionResponseType.ChannelMessageWithSource, builder);
                 return;
