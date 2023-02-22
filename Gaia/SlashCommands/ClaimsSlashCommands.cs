@@ -56,6 +56,7 @@ namespace Gaia
 
                 List<NftReciever> nftRecievers = new List<NftReciever>();
                 await ctx.CreateResponseAsync(InteractionResponseType.DeferredChannelMessageWithSource);
+                // Attempting Claim Response
                 await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent($"Hold on let me check and see if there's any claims waiting for you!"));
 
                 // Receives back CanClaimV3 as a list of Address, NftData, with amount greater than 0
@@ -72,10 +73,13 @@ namespace Gaia
                 // Valid claims found - send to Api
                 if (nftRecievers.Count > 0 && redeemable != null)
                 {
+                    // Claim Found Response
                     await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent($"There's a claim here with your name on it!"));
                     
                     // Gets passed instances of nftReceiver [{ string Address, string NftData }]
                     await ClaimsApiService.AddClaim(nftRecievers);
+
+                    // Claim Sent Response
                     await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent($"I just hand delivered your claim to the teleporter and it should be there as soon as possible!"));
                     
                     foreach (NftReciever nftReciever in nftRecievers)
@@ -89,12 +93,15 @@ namespace Gaia
                 else
                 {
                     ConsoleMessage.WriteMessage($"[INFO]  Unable to find any matching claims for Address: {address}  !"); // No claims found!
+                    
+                    // No Claim Found Response
                     await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent($"I'm sorry I can't seem to find a delivery here with your name on it, check back soon though! Take a look at our announcements for the most up to date info! That's where we keep the most valuable information."));
                     return;
                 }
             }
             else if (ctx.Channel.Id == Settings.ClaimsChannelId && string.IsNullOrEmpty(hexAddress))
             {
+                // Invalid Address Format Response
                 var builder = new DiscordInteractionResponseBuilder()
                 .WithContent("Woah woah woah it's like you're speaking another language! My machines can't read that, please type it in Hex Format : Example: 0x36cd6b3b9329c04df55d55d41c257a5fdd387acd")
                 .AsEphemeral(true);
