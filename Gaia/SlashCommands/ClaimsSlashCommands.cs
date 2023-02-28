@@ -57,7 +57,7 @@ namespace Gaia
                 List<NftReciever> nftRecievers = new List<NftReciever>();
                 await ctx.CreateResponseAsync(InteractionResponseType.DeferredChannelMessageWithSource);
                 // Attempting Claim
-                await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent($"So you are looking for a wandering Soul? Do you know when it arrived in the underworld? I ferry so many Souls across every day, how can I even remember. Alright, let me see, it should be around the catacombs somewhere."));
+                await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent($"Looking for a Soul..."));
                 
 
                 // Receives back CanClaimV3 as a list of Address, NftData, with amount greater than 0
@@ -75,7 +75,7 @@ namespace Gaia
                 if (nftRecievers.Count > 0 && redeemable != null)
                 {
                     // Claim Found
-                    await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent($"There was a Soul associated with your wallet! I ferried it over to the Soulie Catacombs just last week."));
+                    await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent($"There was a Soul associated with your wallet in the catacombs!"));
                     
                     // Gets passed instances of nftReceiver [{ string Address, string NftData }]
                     await ClaimsApiService.AddClaim(nftRecievers);
