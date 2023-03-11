@@ -40,7 +40,7 @@ namespace Gaia.SlashCommands
         {
             if (ctx.Channel.Id == Settings.TeamChannelId
                 || ctx.Channel.Id == Settings.MarketChannelId
-                || ctx.Channel.Id == Settings.MarketForumChannelId
+                || ctx.Channel.Id == Settings.TestChannelId
                 )
             {
                 int metaboyId;
@@ -162,6 +162,7 @@ namespace Gaia.SlashCommands
             if (ctx.Channel.Id == Settings.TeamChannelId
                 || ctx.Channel.Id == Settings.GeneralChannelId
                 || ctx.Channel.Id == Settings.ShowAndTellChannelId
+                || ctx.Channel.Id == Settings.TestChannelId
                 )
             {
                 int metaboyId;
@@ -250,6 +251,7 @@ namespace Gaia.SlashCommands
             if (ctx.Channel.Id == Settings.TeamChannelId
                 || ctx.Channel.Id == Settings.GeneralChannelId
                 || ctx.Channel.Id == Settings.ShowAndTellChannelId
+                || ctx.Channel.Id == Settings.TestChannelId
                 )
             {
                 int metaboyId;
@@ -340,7 +342,7 @@ namespace Gaia.SlashCommands
             if (ctx.Channel.Id == Settings.TeamChannelId
                 || ctx.Channel.Id == Settings.MarketChannelId
                 || ctx.Channel.Id == Settings.ShowAndTellChannelId
-                || ctx.Channel.Id == Settings.MarketForumChannelId
+                || ctx.Channel.Id == Settings.TestChannelId
                 )
             {
                 try
@@ -505,7 +507,7 @@ namespace Gaia.SlashCommands
             if (ctx.Channel.Id == Settings.TeamChannelId
                 || ctx.Channel.Id == Settings.MarketChannelId
                 || ctx.Channel.Id == Settings.ShowAndTellChannelId
-                || ctx.Channel.Id == Settings.MarketForumChannelId
+                || ctx.Channel.Id == Settings.TestChannelId
                 )
             {
                 try
@@ -642,7 +644,7 @@ namespace Gaia.SlashCommands
             if (ctx.Channel.Id == Settings.TeamChannelId
                 || ctx.Channel.Id == Settings.MarketChannelId
                 || ctx.Channel.Id == Settings.ShowAndTellChannelId
-                || ctx.Channel.Id == Settings.MarketForumChannelId
+                || ctx.Channel.Id == Settings.TestChannelId
                 )
             {
                 try
@@ -793,7 +795,7 @@ namespace Gaia.SlashCommands
             if (ctx.Channel.Id == Settings.TeamChannelId
                 || ctx.Channel.Id == Settings.MarketChannelId
                 || ctx.Channel.Id == Settings.ShowAndTellChannelId
-                || ctx.Channel.Id == Settings.MarketForumChannelId
+                || ctx.Channel.Id == Settings.TestChannelId
                 )
             {
                 try
@@ -878,7 +880,7 @@ namespace Gaia.SlashCommands
             if (ctx.Channel.Id == Settings.TeamChannelId
                 || ctx.Channel.Id == Settings.MarketChannelId
                 || ctx.Channel.Id == Settings.ShowAndTellChannelId
-                || ctx.Channel.Id == Settings.MarketForumChannelId
+                || ctx.Channel.Id == Settings.TestChannelId
                 )
             {
                 try
@@ -965,7 +967,7 @@ namespace Gaia.SlashCommands
             if (ctx.Channel.Id == Settings.TeamChannelId
                 || ctx.Channel.Id == Settings.MarketChannelId
                 || ctx.Channel.Id == Settings.ShowAndTellChannelId
-                || ctx.Channel.Id == Settings.MarketForumChannelId
+                || ctx.Channel.Id == Settings.TestChannelId
                 )
             {
                 List<string> GaiaNames = new() {

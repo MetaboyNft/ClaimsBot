@@ -18,7 +18,7 @@ namespace Gaia
         public ulong GeneralChannelId { get; set; }
         public ulong ShowAndTellChannelId { get; set; }
         public ulong MarketChannelId { get; set; }
-        public ulong MarketForumChannelId { get; set; }
+        public ulong TestChannelId { get; set; }
         public string Description { get; set; }
         public string Environment { get; set; }
 
