@@ -82,6 +82,10 @@ namespace Gaia.Services
             {
                 var response = await _client.PostAsync(request);
                 var data = response.Content!;
+                foreach (NftReciever nftReceiver in nftRecievers)
+                {
+                    Console.WriteLine($"[CLAIM SUBMITTED] Address: {nftReceiver.Address} Amount {nftReceiver.NftData}");
+                }
                 
                 return data;
             }

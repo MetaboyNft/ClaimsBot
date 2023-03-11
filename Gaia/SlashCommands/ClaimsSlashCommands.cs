@@ -78,11 +78,6 @@ namespace Gaia
                     await ClaimsApiService.AddClaim(nftRecievers);
                     await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent($"I just hand delivered your claim to the teleporter and it should be there as soon as possible!"));
                     
-                    foreach (NftReciever nftReciever in nftRecievers)
-                    {
-                        ConsoleMessage.WriteMessage($"[INFO]  Submitted claim for Address: {nftReciever.Address} NftData: {nftReciever.NftData} ");
-                    }
-                    
                     return;
 
                 }
