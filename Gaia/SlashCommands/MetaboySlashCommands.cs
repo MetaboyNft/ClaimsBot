@@ -301,8 +301,8 @@ namespace Gaia.SlashCommands
                                 embedColour = "#FD0000"; //gme red
                                 break;
                         }
-                        var imageUrl = $"https://metafamstorage.azureedge.net/images/metaboy/transparent/{metaboyId}_cropped.gif";
-                        var thumbnailUrl = $"https://metafamstorage.azureedge.net/images/metaboy/transparent/{metaboyId}_tiny.gif";
+                        var imageUrl = $"https://metafamstorage.azureedge.net/images/metaboys/transparent/{metaboyId}_cropped.gif";
+                        var thumbnailUrl = $"https://metafamstorage.azureedge.net/images/metaboys/transparent/{metaboyId}_tiny.gif";
                         var embed = new DiscordEmbedBuilder()
                         {
                             Title = $"Metaboy #{metaboyId}, Rank {ranking.Rank}",
