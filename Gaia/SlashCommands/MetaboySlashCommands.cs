@@ -98,7 +98,7 @@ namespace Gaia.SlashCommands
                                 break;
                         }
 
-                        var imageUrl = $"https://looprarecdn.azureedge.net/images/metaboys/full/{metaboyId}.gif";
+                        var imageUrl = $"https://metafamstorage.azureedge.net/images/metaboys/full/{metaboyId}.gif";
                         var embed = new DiscordEmbedBuilder()
                         {
                             Title = $"Metaboy #{metaboyId}",
@@ -212,7 +212,7 @@ namespace Gaia.SlashCommands
                                 embedColour = "#FD0000"; //gme red
                                 break;
                         }
-                        var imageUrl = $"https://looprarecdn.azureedge.net/images/metaboys/full/{metaboyId}.gif";
+                        var imageUrl = $"https://metafamstorage.azureedge.net/images/metaboys/full/{metaboyId}.gif";
                         var embed = new DiscordEmbedBuilder()
                         {
                             Title = $"Metaboy #{metaboyId}, Rank {ranking.Rank}",
@@ -301,8 +301,8 @@ namespace Gaia.SlashCommands
                                 embedColour = "#FD0000"; //gme red
                                 break;
                         }
-                        var imageUrl = $"https://looprarecdn.azureedge.net/images/metaboy/transparent/{metaboyId}_cropped.gif";
-                        var thumbnailUrl = $"https://looprarecdn.azureedge.net/images/metaboy/transparent/{metaboyId}_tiny.gif";
+                        var imageUrl = $"https://metafamstorage.azureedge.net/images/metaboy/transparent/{metaboyId}_cropped.gif";
+                        var thumbnailUrl = $"https://metafamstorage.azureedge.net/images/metaboy/transparent/{metaboyId}_tiny.gif";
                         var embed = new DiscordEmbedBuilder()
                         {
                             Title = $"Metaboy #{metaboyId}, Rank {ranking.Rank}",
@@ -377,7 +377,7 @@ namespace Gaia.SlashCommands
                     var gamestopNFTData7 = await GamestopService.GetNftData("0xb3ca435a05ac1f67102258a14d1ac4687e4a00ca8fd838d7b0faf8ac994eb839", "0x1d006a27bd82e10f9194d30158d91201e9930420");
                     var gamestopNFTOrders7 = await GamestopService.GetNftOrders(gamestopNFTData7.nftId);
 
-                    var imageUrl = $"https://looprarecdn.azureedge.net/images/metaboyhonorary/full/astroboy.gif";
+                    var imageUrl = $"https://metafamstorage.azureedge.net/images/Collections/astroboy.gif";
                     var embed = new DiscordEmbedBuilder()
                     {
                         Title = $"Honorary",
@@ -482,7 +482,7 @@ namespace Gaia.SlashCommands
                         Url = "https://nft.gamestop.com/collection/MetaBoyHonorary"
                     };
 
-                    var imageUrl = $"https://looprarecdn.azureedge.net/images/metaboyhonorary/full/astroboy.gif";
+                    var imageUrl = $"https://metafamstorage.azureedge.net/images/Collections/astroboy.gif";
                     embed.Thumbnail = new DiscordEmbedBuilder.EmbedThumbnail() { Url = imageUrl, Height = 256, Width = 256 };
                     embed.AddField("Oops!", "Something went wrong!");
                     await ctx.EditResponseAsync(new DiscordWebhookBuilder().AddEmbed(embed));
@@ -535,7 +535,7 @@ namespace Gaia.SlashCommands
                     var gamestopNFTOrders5 = await GamestopService.GetNftOrders(gamestopNFTData5.nftId);
 
 
-                    var imageUrl = $"https://looprarecdn.azureedge.net/images/metaboygmerica/gmerica.gif";
+                    var imageUrl = $"https://metafamstorage.azureedge.net/images/Collections/gmerica.gif";
                     var embed = new DiscordEmbedBuilder()
                     {
                         Title = $"GMErica",
@@ -619,7 +619,7 @@ namespace Gaia.SlashCommands
                         Url = "https://nft.gamestop.com/collection/Gmricaxmetaboy"
                     };
 
-                    var imageUrl = $"https://looprarecdn.azureedge.net/images/metaboygmerica/gmerica.gif";
+                    var imageUrl = $"https://metafamstorage.azureedge.net/images/Collections/gmerica.gif";
                     embed.Thumbnail = new DiscordEmbedBuilder.EmbedThumbnail() { Url = imageUrl, Height = 256, Width = 256 };
                     embed.AddField("Oops!", "Something went wrong!");
                     await ctx.EditResponseAsync(new DiscordWebhookBuilder().AddEmbed(embed));
@@ -676,7 +676,7 @@ namespace Gaia.SlashCommands
                     var gamestopNFTOrders6 = await GamestopService.GetNftOrders(gamestopNFTData6.nftId);
 
 
-                    var imageUrl = $"https://looprarecdn.azureedge.net/images/metaboyairdrop/airdrop.gif";
+                    var imageUrl = $"https://metafamstorage.azureedge.net/images/Collections/airdrop.gif";
                     var embed = new DiscordEmbedBuilder()
                     {
                         Title = $"Airdrop",
@@ -770,7 +770,7 @@ namespace Gaia.SlashCommands
                         Url = "https://nft.gamestop.com/collection/MetaBoyAirdrop"
                     };
 
-                    var imageUrl = $"https://looprarecdn.azureedge.net/images/metaboyhairdrop/airdrop.gif";
+                    var imageUrl = $"https://metafamstorage.azureedge.net/images/Collections/airdrop.gif";
                     embed.Thumbnail = new DiscordEmbedBuilder.EmbedThumbnail() { Url = imageUrl, Height = 256, Width = 256 };
                     embed.AddField("Oops!", "Something went wrong!");
                     await ctx.EditResponseAsync(new DiscordWebhookBuilder().AddEmbed(embed));
@@ -809,7 +809,7 @@ namespace Gaia.SlashCommands
                     var gamestopNFTData2 = await GamestopService.GetNftData("0xd79e1ff7615e2826b2e4e29bbfd6cfa1d4109da4cbabf726b4690e1c9d1b411e", "0x1d006a27bd82e10f9194d30158d91201e9930420");
                     var gamestopNFTOrders2 = await GamestopService.GetNftOrders(gamestopNFTData2.nftId);
 
-                    var imageUrl = $"https://looprarecdn.azureedge.net/images/metaboycelebratory/ethboy.gif";
+                    var imageUrl = $"https://metafamstorage.azureedge.net/images/Collections/ethboy.gif";
                     var embed = new DiscordEmbedBuilder()
                     {
                         Title = $"Celebratory",
@@ -855,7 +855,7 @@ namespace Gaia.SlashCommands
                         Url = "https://nft.gamestop.com/collection/celebratorymetaboy"
                     };
 
-                    var imageUrl = $"https://looprarecdn.azureedge.net/images/metaboycelebratory/ethboy.gif";
+                    var imageUrl = $"https://metafamstorage.azureedge.net/images/Collections/ethboy.gif";
                     embed.Thumbnail = new DiscordEmbedBuilder.EmbedThumbnail() { Url = imageUrl, Height = 256, Width = 256 };
                     embed.AddField("Oops!", "Something went wrong!");
                     await ctx.EditResponseAsync(new DiscordWebhookBuilder().AddEmbed(embed));
