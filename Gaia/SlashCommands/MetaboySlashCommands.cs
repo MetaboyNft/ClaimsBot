@@ -895,7 +895,7 @@ namespace Gaia.SlashCommands
                     var gamestopNFTOrders2 = await GamestopService.GetNftOrders(gamestopNFTData2.nftId);
 
                     // Image thumbnail
-                    var imageUrl = $"https://metafamstorage.azureedge.net/metafam-collection/MetaFam.gif";
+                    var imageUrl = $"https://metafamstorage.azureedge.net/images/Collections/metafam.gif";
                     var embed = new DiscordEmbedBuilder()
                     {
                         Title = $"MetaFam",
@@ -941,7 +941,7 @@ namespace Gaia.SlashCommands
                         Url = "https://nft.gamestop.com/collection/MetaFam"
                     };
 
-                    var imageUrl = $"https://metafamstorage.azureedge.net/metafam-collection/MetaFam.gif";
+                    var imageUrl = $"https://metafamstorage.azureedge.net/images/Collections/metafam.gif";
                     embed.Thumbnail = new DiscordEmbedBuilder.EmbedThumbnail() { Url = imageUrl, Height = 256, Width = 256 };
                     embed.AddField("Oops!", "Something went wrong!");
                     await ctx.EditResponseAsync(new DiscordWebhookBuilder().AddEmbed(embed));
