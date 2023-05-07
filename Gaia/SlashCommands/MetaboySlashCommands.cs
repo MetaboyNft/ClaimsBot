@@ -154,7 +154,7 @@ namespace Gaia.SlashCommands
         }
 
         // Show MetaBoy
-        // Team, General, ShowAndTell
+        // Team, General, ShowAndTell, Market
         [SlashCommand("show", "Show a MetaBoy")]
         public async Task ShowCommand(InteractionContext ctx, [Option("id", "The MetaBoy ID to Lookup, example: 420")] string id)
         {
@@ -163,6 +163,7 @@ namespace Gaia.SlashCommands
                 || ctx.Channel.Id == Settings.GeneralChannelId
                 || ctx.Channel.Id == Settings.ShowAndTellChannelId
                 || ctx.Channel.Id == Settings.TestChannelId
+                || ctx.Channel.Id == Settings.MarketChannelId
                 )
             {
                 int metaboyId;
@@ -244,7 +245,7 @@ namespace Gaia.SlashCommands
         }
 
         // Show Transparent
-        // Team, General, ShowAndTell
+        // Team, General, ShowAndTell, Market
         [SlashCommand("show_transparent", "Show a transparent MetaBoy")]
         public async Task ShowTransparentCommand(InteractionContext ctx, [Option("id", "The MetaBoy ID to Lookup, example: 420")] string id)
         {
@@ -252,6 +253,7 @@ namespace Gaia.SlashCommands
                 || ctx.Channel.Id == Settings.GeneralChannelId
                 || ctx.Channel.Id == Settings.ShowAndTellChannelId
                 || ctx.Channel.Id == Settings.TestChannelId
+                || ctx.Channel.Id == Settings.MarketChannelId
                 )
             {
                 int metaboyId;
