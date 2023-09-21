@@ -18,11 +18,18 @@ IConfiguration config = new ConfigurationBuilder()
 Settings settings = config.GetRequiredSection("Settings").Get<Settings>();
 
 Ranks? ranks;
+Ranks? ranks_stx;
 
 using (StreamReader r = new StreamReader("ranks.json"))
 {
     string json = r.ReadToEnd();
     ranks = JsonConvert.DeserializeObject<Ranks>(json);
+}
+
+using (StreamReader r = new StreamReader("ranks_stx.json"))
+{
+    string json = r.ReadToEnd();
+    ranks_stx = JsonConvert.DeserializeObject<Ranks>(json);
 }
 
 var discord = new DiscordClient(new DiscordConfiguration()
@@ -53,6 +60,7 @@ new SlashCommandsConfiguration
 slash.RegisterCommands<ClaimsSlashCommands>(settings.DiscordServerId);
 
 MetaboySlashCommands.Ranks = ranks;
+MetaboySlashCommands.RanksStacks = ranks_stx;
 slash.RegisterCommands<MetaboySlashCommands>(settings.DiscordServerId);
 
 

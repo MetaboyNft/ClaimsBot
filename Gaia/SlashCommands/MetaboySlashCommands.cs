@@ -32,6 +32,8 @@ namespace Gaia.SlashCommands
 
         public static Ranks Ranks { private get; set; }
 
+        public static Ranks RanksStacks { private get; set; }
+
 
         // Show Trade
         // Team and Market
@@ -153,10 +155,17 @@ namespace Gaia.SlashCommands
 
         }
 
+        public enum Collection
+        {
+            [ChoiceName("OG")]
+            OG,
+            [ChoiceName("STX")]
+            STX
+        }
         // Show MetaBoy
         // Team, General, ShowAndTell, Market
         [SlashCommand("show", "Show a MetaBoy")]
-        public async Task ShowCommand(InteractionContext ctx, [Option("id", "The MetaBoy ID to Lookup, example: 420")] string id)
+        public async Task ShowCommand(InteractionContext ctx, [Option("id", "The MetaBoy ID to Lookup, example: 420")] string id, [Option("collection", "The collection to look in, example: OG")] Collection collection = Collection.OG)
         {
 
             if (ctx.Channel.Id == Settings.TeamChannelId
@@ -170,7 +179,15 @@ namespace Gaia.SlashCommands
                 bool canBeParsed = Int32.TryParse(id, out metaboyId);
                 if (canBeParsed)
                 {
-                    var ranking = Ranks.rankings.FirstOrDefault(x => x.Id == metaboyId);
+                    Ranking? ranking;
+                    if(collection == Collection.STX)
+                    {
+                       ranking = RanksStacks.rankings.FirstOrDefault(x => x.Id == metaboyId);
+                    }
+                    else
+                    {
+                        ranking = Ranks.rankings.FirstOrDefault(x => x.Id == metaboyId);
+                    }
                     if (ranking == null)
                     {
                         var builder = new DiscordInteractionResponseBuilder()
@@ -213,10 +230,22 @@ namespace Gaia.SlashCommands
                                 embedColour = "#FD0000"; //gme red
                                 break;
                         }
-                        var imageUrl = $"https://metafamstorage.azureedge.net/images/metaboys/full/{metaboyId}.gif";
+
+                        var title = $"Metaboy #{metaboyId}, Rank {ranking.Rank}";
+                        var imageUrl = "";
+                        if(collection == Collection.OG)
+                        {
+                            imageUrl = $"https://metafamstorage.azureedge.net/images/metaboys/full/{metaboyId}.gif";
+                        }
+                        else if(collection == Collection.STX)
+                        {
+                            imageUrl = $"https://metafamstorage.blob.core.windows.net/metaboy-og-stx-collection/GIF/{metaboyId}.gif";
+                            title = "STX " + title;
+                        }
+                        
                         var embed = new DiscordEmbedBuilder()
                         {
-                            Title = $"Metaboy #{metaboyId}, Rank {ranking.Rank}",
+                            Title = title,
                             Url = ranking.MarketplaceUrl,
                             ImageUrl = imageUrl,
                             Color = new DiscordColor(embedColour)
